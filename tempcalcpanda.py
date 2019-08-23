@@ -20,21 +20,10 @@ df['Date']=pd.to_datetime(df.Date, dayfirst=True)
 #Group measurements by day in order to calculate the average temperature of each day
 # Result = pd.DataFrame(df.groupby('Date')['UK Average'].mean())
 Result = df.groupby('Date')['UK Average'].mean()
-# Result.columns=['Date', 'Temperature']
-# Result['Date'] = pd.to_datetime(Result.Date)
-# Result.sort_values(Date, axis=1)
-# Result.sort_values(axis=0, ascending=True)
-# Result.sort_values('Date')
-#Print the results
 
+#Print the results
 print('The average temperature each day is:\n')
 print(Result)
 
-
-# Result.sort_values('Date', inplace = True)
-# print(Result)
-
 #Store the results to a csv file
-# df.to_excel("output.xlsx")
-# df.to_csv(r'dataframe.csv', index= None, header = True)
 Result.to_csv(r'Result.csv')
